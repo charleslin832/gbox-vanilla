@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <!-- meta -->
+    <title>gbox vanilla</title>
+    <meta name="description" content="gbox vanilla">
+    <!-- gbox -->
+    <script type="text/javascript" src="gbox-vanilla.js"></script>
+
+
+</head>
+<body>
+    <script>
+    let gboxA = gbox.open('單純輸入資訊A<br>單純輸入資訊A<br>單純輸入資訊A<br>單純輸入資訊A', {
+        actionBtns: [
+            {
+                text: "開啟子跳窗",
+                id: "btn-open-b",
+                class: "btn-open-b",
+                click: function () {
+                    let gboxB = gbox.open('單純輸入資訊B', {
+                        actionBtns: [
+                            {
+                                text: "關閉子跳窗",
+                                id: "btn-close-b",
+                                class: "btn-close-b",
+                                click: function () {
+                                    gbox.close(gboxB);
+                                }
+                            },
+                            {
+                                text: "關閉全部視窗",
+                                id: "btn-close-all",
+                                class: "btn-close-all",
+                                click: function () {
+                                    gbox.close();
+                                }
+                            }
+                        ]
+                    }, true);
+                }
+            },
+            {
+                text: "關閉主視窗",
+                id: "btn-close-a",
+                class: "btn-close-a",
+                click: function () {
+                    gbox.close(gboxA);
+                }
+            }
+        ]
+    });
+    </script>
+</body>
+
+</html>
